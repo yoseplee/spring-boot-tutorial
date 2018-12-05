@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="aiia.tutorial.mapper.CommentMapper">
+  <select id="list" resultType="HashMap">
+    SELECT * FROM comment
+  </select>
+  <insert id="post" parameterType="HashMap">
+  	INSERT INTO comment SET writer = #{writer}, content = #{content}, reg_date = now();
+  </insert>
+  <update id="put" parameterType="HashMap">
+  	UPDATE comment SET writer = #{writer}, content = #{content} where idx = #{idx}
+  </update>
+  <delete id="delete" parameterType="HashMap">
+  	DELETE FROM comment WHERE idx = #{idx}
+  </delete>
+</mapper>
